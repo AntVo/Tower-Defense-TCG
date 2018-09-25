@@ -12,8 +12,9 @@ export default class extends Phaser.State {
     this.load.setPreloadSprite(this.loaderBar)
     //
     // load your assets
-    //
-    this.load.image('mushroom', 'assets/images/mushroom2.png')
+    this.load.tilemap('endlessMap', 'assets/maps/EndlessMap.json', null, Phaser.Tilemap.TILED_JSON);
+    this.load.image('tiles', 'assets/maps/tiles.png');
+
   }
 
   create () {
