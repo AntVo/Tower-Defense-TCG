@@ -11,10 +11,13 @@ export class Basic_Fire_Tower extends Card{
       const xTile = game.layer.getTileX(pointer.x);
       const yTile = game.layer.getTileY(pointer.y);
       var tile = game.map.getTile(xTile, yTile);
-      if (tile.properties.buildable && player.red.available >= 2/* Buildable tile && AND HAS  2 MANA*/){
+
+      /* Buildable tile && AND HAS  2 MANA*/
+      if (tile.properties.buildable && player.red.available >= 2 && this.placed == false){
         this.x = tile.worldX+16;
         this.y =tile.worldY+10;
         this.placed = true;
+        this.inputEnabled = false;
         player.red.available -= 2;
         player.redManabar.manaCounter.text = player.red.available;
         player.hand.removeCard(this);
@@ -40,6 +43,7 @@ export class Mountain extends Card{
       player.red.rate-= .25;
       player.redManabar.setTime(player.red.rate);
       this.kill();
+      player.hand.removeCard(this);
       player.hand.displayHand();
     }
   }

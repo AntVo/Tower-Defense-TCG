@@ -5,15 +5,30 @@ import ManaBar from '../gameClasses/ManaBar';
 
 export default class Player{
   constructor(username, gameState) {
+
+    // MetaData
     this.username = username;
-    this.red = {rate: 2, max: 1, available: 0};
+    this.gameState = gameState;
+
+    // Mana
+    this.red = {rate: 2, max: 0, available: 0};
     this.blue = {rate: 0, max: 0, available: 0};
     this.black = {rate: 0, max: 0, available: 0};
     this.green = {rate: 0, max: 0, available: 0};
+
+    // Player's stuff
     this.towers = [];
-    this.gameState = gameState;
     this.hand = new Hand(gameState);
     this.deck = new Deck(gameState, this);
+
+    // Timer
+    this.drawTimer = gameState.time.create(false);
+    this.drawTimer.loop(3200, drawCard, this);
+    this.drawTimer.start();
+    function drawCard(){
+      this.hand.addCard(this.deck.getTopCard());
+      this.hand.displayHand();
+    }
 
     // Red
     this.redManabar = new ManaBar({
@@ -39,6 +54,7 @@ export default class Player{
 
   }
 
+
   startGame(){
     this.deck.shuffle();
     // draw 7 
@@ -53,9 +69,6 @@ export default class Player{
   tickUpdate(){
     console.log('hey;');
   }
-
-
-
 
 }
 

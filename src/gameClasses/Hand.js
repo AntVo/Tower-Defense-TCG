@@ -4,6 +4,10 @@ export default class Hand{
   constructor(gameState) {
     this.hand = [];
     this.gameState = gameState;
+    // this.drawTimer.events.add(function(){
+    //   console.log('hey');
+    // })
+
   }
 
   removeCard(card){
