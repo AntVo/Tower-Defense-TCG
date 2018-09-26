@@ -13,9 +13,7 @@ export default class extends Phaser.State {
      this.load.image('basic_fire_tower_card', 'assets/cards/tower.png');
      this.load.image('basic_fire_tower', 'assets/cards/tower_tower.png');
      this.load.image('mountain', 'assets/cards/mountain.png');
-
-     this.load.image('red_manabar', 'assets/images/red-manabar.png');
-     this.load.image('red_manabar_fill', 'assets/images/red-manabar-fill.png');
+     this.load.spritesheet('timer', 'assets/images/timer.png', 150, 20);
   }
 
   create() {
@@ -44,7 +42,7 @@ export default class extends Phaser.State {
   }
 
   update(){
-    this.player1.tickUpdate();
+    
   }
   
   render() {
