@@ -14,6 +14,7 @@ export default class extends Phaser.State {
      this.load.image('basic_fire_tower', 'assets/cards/tower_tower.png');
      this.load.image('mountain', 'assets/cards/mountain.png');
      this.load.spritesheet('timer', 'assets/images/timer.png', 150, 20);
+     this.load.spritesheet('orc_grunt', 'assets/summons/orc_grunt.png', 77, 64, 7);
   }
 
   create() {

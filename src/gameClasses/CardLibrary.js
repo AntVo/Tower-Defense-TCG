@@ -1,6 +1,9 @@
 import Card from '../gameClasses/Card';
 
 export class Basic_Fire_Tower extends Card{
+  // TODO: INSTEAD OF CHANGING THE SPRITE OF THE CARD TO A TOWER. INSTEAD ACTUALLY CREATE A TOWER OBJECT
+  // AND POPULATE PLAYER TOWER ARRAY.
+
   constructor (game, x, y, player){
     super(game, x, y, 'basic_fire_tower_card', 'basic_fire_tower');
     this.nonPlaceable = false;

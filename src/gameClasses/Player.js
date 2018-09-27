@@ -2,6 +2,7 @@ import Phaser from 'phaser'
 import Hand from '../gameClasses/Hand';
 import Deck from '../gameClasses/Deck';
 import ManaBar from '../gameClasses/ManaBar';
+import Summon from '../gameClasses/Summon';
 
 export default class Player{
   constructor(username, gameState) {
@@ -41,6 +42,15 @@ export default class Player{
           onComplete: () => {this.redManabar.start(); manabarCompletion(this.red)}
         });
     this.redManabar.start();
+
+    // Summons
+    this.orc = new Summon(this.gameState.game, 300, 300, 'orc_grunt', 3, 3, 3);
+    this.gameState.game.add.existing(this.orc);
+
+
+
+
+
 
     var that = this;
     function manabarCompletion(manaColor){
